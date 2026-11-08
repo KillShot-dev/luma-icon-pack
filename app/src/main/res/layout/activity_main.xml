@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#0B0E14">
+    <ImageView android:layout_width="match_parent" android:layout_height="110dp"
+        android:src="@drawable/metaphasic_logo" android:scaleType="fitCenter"
+        android:background="#0B0E14" android:contentDescription="metaPhasic Group" />
+    <TextView android:id="@+id/set_title" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:textColor="#E8EDF5" android:textSize="20sp"
+        android:padding="12dp" android:text="Luma" />
+    <TextView android:id="@+id/set_subtitle" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:textColor="#94A3B8" android:textSize="13sp"
+        android:paddingLeft="12dp" android:paddingRight="12dp" android:paddingBottom="8dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btn_icons" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Icons" />
+        <Button android:id="@+id/btn_apply" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Apply" />
+        <Button android:id="@+id/btn_sets" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Sets" />
+        <Button android:id="@+id/btn_wallpapers" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Wallpapers" />
+        <Button android:id="@+id/btn_request" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Request" />
+        <Button android:id="@+id/btn_about" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="About" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/tab_icons" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:orientation="vertical">
+        <EditText android:id="@+id/search" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Search icons…"
+            android:textColor="#E8EDF5" android:textColorHint="#64748B" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/icon_grid"
+            android:layout_width="match_parent" android:layout_height="match_parent" />
+    </LinearLayout>
+    <ScrollView android:id="@+id/tab_apply" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="12dp">
+            <TextView android:id="@+id/apply_note" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textColor="#E8EDF5" android:textSize="14sp" />
+            <LinearLayout android:id="@+id/apply_list" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView android:id="@+id/tab_sets" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="12dp">
+            <TextView android:id="@+id/sets_explain" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textColor="#E8EDF5" android:textSize="14sp" />
+            <LinearLayout android:id="@+id/sets_list" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView android:id="@+id/tab_wallpapers" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="12dp">
+            <TextView android:id="@+id/wallpaper_note" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textColor="#E8EDF5" android:textSize="14sp" />
+            <LinearLayout android:id="@+id/wallpaper_list" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView android:id="@+id/tab_request" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="12dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E8EDF5" android:text="Request a missing icon. Your request text is copied or shared by you — Luma sends nothing on its own." />
+            <EditText android:id="@+id/req_app" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="App name" android:textColor="#E8EDF5" android:textColorHint="#64748B" />
+            <EditText android:id="@+id/req_pkg" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Package name (if known, e.g. com.example.app)" android:textColor="#E8EDF5" android:textColorHint="#64748B" />
+            <EditText android:id="@+id/req_note" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:hint="Notes" android:textColor="#E8EDF5" android:textColorHint="#64748B" />
+            <Button android:id="@+id/btn_copy_request" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Copy request text" />
+            <Button android:id="@+id/btn_share_request" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:text="Share request text" />
+        </LinearLayout>
+    </ScrollView>
+    <ScrollView android:id="@+id/tab_about" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="12dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#E8EDF5" android:textSize="14sp"
+                android:text="Luma — Icon Pack by metaPhasic Group. PROTOTYPE: not release-ready, not published.
+
+Luma is not affiliated with, endorsed by, or sponsored by any app owner. Icon glyphs are original simplified interpretations of each app's function, not reproductions of brand logos.
+
+Samsung One UI Home: via Good Lock Theme Park only (not native) — Good Lock → Theme Park → Icon → Create New → Iconpack → select the installed Luma set → save and apply. Documented route, not yet tested against Luma; Good Lock availability varies by region.
+
+Stock Pixel launcher does not support third-party icon packs; use a supported custom launcher.
+
+Glyph set: logo-only marks on transparent backgrounds, with no mask or backplate, so glyphs are never cropped into a tile. Some launchers may still apply their own shape settings — see the launcher test notes." />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

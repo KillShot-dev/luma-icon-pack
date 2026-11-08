@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Luma search widget provider info — Phase 6 staging (original, no widget library).
+  ~4x1 cells: 250dp x 40dp. updatePeriodMillis is 0: the bar is static and
+  there is nothing to refresh; onUpdate() only (re)binds the tap action.
+  Resizable horizontally only, so the bar keeps its single-row height.
+  targetCellWidth/targetCellHeight are Android 12+ (API 31) attributes;
+  they are ignored on older versions, and minSdk here is 26, so
+  minWidth/minHeight stay as the sizing source of truth for old hosts.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="40dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="1"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_search"
+    android:previewImage="@drawable/search_widget_preview"
+    android:resizeMode="horizontal"
+    android:widgetCategory="home_screen" />

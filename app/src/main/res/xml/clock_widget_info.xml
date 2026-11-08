@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Luma clock widget provider info — Phase 6 staging (original, no widget library).
+  ~4x2 cells: 250dp x 110dp. updatePeriodMillis is 0 because the TextClock
+  views in widget_clock.xml update themselves from system time broadcasts;
+  the framework must not wake this provider on a schedule.
+  targetCellWidth/targetCellHeight are Android 12+ (API 31) attributes; they
+  are ignored on older versions, and minSdk here is 26, so minWidth/minHeight
+  stay as the sizing source of truth for old hosts.
+-->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="250dp"
+    android:minHeight="110dp"
+    android:targetCellWidth="4"
+    android:targetCellHeight="2"
+    android:updatePeriodMillis="0"
+    android:initialLayout="@layout/widget_clock"
+    android:previewImage="@drawable/clock_widget_preview"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen" />

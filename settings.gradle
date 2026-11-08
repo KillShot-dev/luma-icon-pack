@@ -1,0 +1,17 @@
+// NOTE: gradlePluginPortal() deliberately omitted — see README (sandbox:
+// Java HTTPS to plugins.gradle.org hangs; AGP marker is on Google Maven).
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "luma"
+include ':app'
