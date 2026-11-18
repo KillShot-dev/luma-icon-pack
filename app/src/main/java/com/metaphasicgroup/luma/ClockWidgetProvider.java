@@ -9,7 +9,7 @@ import android.provider.AlarmClock;
 import android.widget.RemoteViews;
 
 /**
- * Luma clock widget — ORIGINAL code written for Phase 6 (no widget library).
+ * Luma clock widget — ORIGINAL code written for (no widget library).
  *
  * <p>Shows the time and the date with two {@code TextClock} views, so the
  * widget updates itself from the system's time broadcasts. There is no

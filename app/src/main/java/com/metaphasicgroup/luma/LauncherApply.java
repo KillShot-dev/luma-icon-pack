@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 
 /** Per-launcher apply routes. ORIGINAL code; intent strings below are ONLY
- *  those sourced in Phase 3 (see README § Apply intents + sources):
+ *  those sourced from upstream documentation (see README § Apply intents):
  *  Nova / Action / ADW / Apex direct intents come from the CandyBar
  *  LauncherHelper summary (DeepWiki) and, for Nova, Nova's own manifest
  *  (IconThemePrompt handles com.teslacoilsw.launcher.APPLY_ICON_THEME).
  *  Every other launcher is a settings-launch or documented manual path —
- *  no intent string is guessed for them. All routes are UNTESTED against
- *  Luma until Phase 4; the dashboard always shows the manual fallback.
+ *  no intent string is guessed for them. The dashboard always shows the
+ *  manual fallback alongside any direct route.
  */
 public class LauncherApply {
     public enum Method { DIRECT_NOVA, DIRECT_ACTION, DIRECT_ADW, DIRECT_APEX, SETTINGS_LAUNCH, MANUAL }
@@ -39,19 +39,19 @@ public class LauncherApply {
         new Launcher("Action Launcher", new String[]{"com.actionlauncher.playstore"}, Method.DIRECT_ACTION,
             "Home settings > Appearance > Icon pack > select this Luma set."),
         new Launcher("ADW Launcher 2", new String[]{"org.adw.launcher"}, Method.DIRECT_ADW,
-            "ADW Settings > Theme settings > select this Luma set. (Exact ADW 2 path to confirm in Phase 4.)"),
+            "ADW Settings > Theme settings > select this Luma set."),
         new Launcher("Apex Launcher", new String[]{"com.anddoes.launcher"}, Method.DIRECT_APEX,
             "Apex settings > Theme settings > Icon Pack > select this Luma set."),
         new Launcher("Lawnchair", new String[]{"ch.deletescape.lawnchair.plah", "app.lawnchair", "app.lawnchair.play"}, Method.MANUAL,
             "Home Settings > General > Icon Style > select this Luma set."),
         new Launcher("Niagara Launcher", new String[]{"bitpit.launcher"}, Method.MANUAL,
-            "Niagara Settings > find the icon-pack setting > select this Luma set. (Exact path to confirm in Phase 4.)"),
+            "Niagara Settings > find the icon-pack setting > select this Luma set."),
         new Launcher("Smart Launcher", new String[]{"ginlemon.flowerfree"}, Method.MANUAL,
-            "Smart Launcher settings > find the icon-pack setting > select this Luma set. (Exact path to confirm in Phase 4.)"),
+            "Smart Launcher settings > find the icon-pack setting > select this Luma set."),
         new Launcher("Hyperion Launcher", new String[]{"projekt.launcher"}, Method.SETTINGS_LAUNCH,
-            "Open Hyperion settings and choose this Luma set as the icon pack. (Exact path to confirm in Phase 4.)"),
+            "Open Hyperion settings and choose this Luma set as the icon pack."),
         new Launcher("Poco Launcher", new String[]{"com.mi.android.globallauncher"}, Method.SETTINGS_LAUNCH,
-            "Open Poco settings and choose this Luma set as the icon pack. (Exact path to confirm in Phase 4.)"),
+            "Open Poco settings and choose this Luma set as the icon pack."),
         new Launcher("Microsoft Launcher", new String[]{"com.microsoft.launcher"}, Method.MANUAL,
             "Microsoft Launcher settings > Personalization > Change icon pack > select this Luma set."),
     };

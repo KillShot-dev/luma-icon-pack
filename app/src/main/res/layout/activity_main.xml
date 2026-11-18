@@ -11,21 +11,36 @@
     <TextView android:id="@+id/set_subtitle" android:layout_width="match_parent"
         android:layout_height="wrap_content" android:textColor="#94A3B8" android:textSize="13sp"
         android:paddingLeft="12dp" android:paddingRight="12dp" android:paddingBottom="8dp" />
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button android:id="@+id/btn_icons" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="Icons" />
-        <Button android:id="@+id/btn_apply" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="Apply" />
-        <Button android:id="@+id/btn_sets" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="Sets" />
-        <Button android:id="@+id/btn_wallpapers" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="Wallpapers" />
-        <Button android:id="@+id/btn_request" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="Request" />
-        <Button android:id="@+id/btn_about" android:layout_width="0dp" android:layout_weight="1"
-            android:layout_height="wrap_content" android:text="About" />
-    </LinearLayout>
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button android:id="@+id/btn_icons" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Icons"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+            <Button android:id="@+id/btn_apply" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Apply"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+            <Button android:id="@+id/btn_sets" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Sets"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+            <Button android:id="@+id/btn_wallpapers" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Wallpapers"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+            <Button android:id="@+id/btn_request" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Request"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+            <Button android:id="@+id/btn_about" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="About"
+                android:singleLine="true" android:maxLines="1"
+                android:paddingLeft="10dp" android:paddingRight="10dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
     <LinearLayout android:id="@+id/tab_icons" android:layout_width="match_parent"
         android:layout_height="0dp" android:layout_weight="1" android:orientation="vertical">
         <EditText android:id="@+id/search" android:layout_width="match_parent"
@@ -88,11 +103,11 @@
             android:orientation="vertical" android:padding="12dp">
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:textColor="#E8EDF5" android:textSize="14sp"
-                android:text="Luma — Icon Pack by metaPhasic Group. PROTOTYPE: not release-ready, not published.
+                android:text="Luma — Icon Pack by metaPhasic Group.
 
 Luma is not affiliated with, endorsed by, or sponsored by any app owner. Icon glyphs are original simplified interpretations of each app's function, not reproductions of brand logos.
 
-Samsung One UI Home: via Good Lock Theme Park only (not native) — Good Lock → Theme Park → Icon → Create New → Iconpack → select the installed Luma set → save and apply. Documented route, not yet tested against Luma; Good Lock availability varies by region.
+Samsung One UI Home: via Good Lock Theme Park only (not native) — Good Lock → Theme Park → Icon → Create New → Iconpack → select the installed Luma set → save and apply. Good Lock availability varies by region.
 
 Stock Pixel launcher does not support third-party icon packs; use a supported custom launcher.
 

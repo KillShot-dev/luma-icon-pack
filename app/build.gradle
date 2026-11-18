@@ -10,8 +10,8 @@ android {
         applicationId 'com.metaphasicgroup.luma'
         minSdk 26
         targetSdk 36
-        versionCode 6
-        versionName '1.0.2'
+        versionCode 7
+        versionName '1.0.3'
     }
 
     signingConfigs {
@@ -65,4 +65,25 @@ dependencies {
 configurations.all {
     exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
     exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+}
+
+// Copy lint (MP-021): a release build must never ship prototype or
+// phase language. Scans the app sources (Java + XML, including the
+// manifest and appfilter files) and fails the build on any hit.
+tasks.register('lumaCopyLint') {
+    doLast {
+        def bad = []
+        def pattern = ~/PROTOTYPE|Phase \d|TODO|not yet tested/
+        fileTree(dir: 'src', includes: ['**/*.java', '**/*.xml']).each { f ->
+            f.eachLine('UTF-8') { line, n ->
+                if (line =~ pattern) bad << "${f.path}:${n}: ${line.trim()}"
+            }
+        }
+        if (!bad.empty) {
+            throw new GradleException('Luma copy lint failed:\n' + bad.join('\n'))
+        }
+    }
+}
+tasks.whenTaskAdded { t ->
+    if (t.name == 'preBuild') t.dependsOn 'lumaCopyLint'
 }

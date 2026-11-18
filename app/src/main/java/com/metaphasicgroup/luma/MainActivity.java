@@ -21,9 +21,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-/** Luma dashboard — ORIGINAL code written for Phase 3 (no dashboard library).
+/** Luma dashboard — ORIGINAL code written for this project (no dashboard library).
  *  Tabs: Icons (searchable grid of this flavor's icons), Apply, Sets,
- *  Wallpapers (Phase 6: preview + set the 10 Luma wallpapers),
+ *  Wallpapers (preview + set the 10 Luma wallpapers),
  *  Request, About. The Sets tab is deliberately honest: it does NOT claim
  *  to switch the applied set in place, because launchers read a pack's
  *  appfilter.xml + drawables statically from the installed APK. Switching
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         applyPackPackage = getPackageName();
 
         TextView setTitle = findViewById(R.id.set_title);
-        setTitle.setText("Luma — " + capitalize(BuildConfig.FLAVOR) + "  ·  PROTOTYPE");
+        setTitle.setText("Luma — " + capitalize(BuildConfig.FLAVOR));
         TextView setSub = findViewById(R.id.set_subtitle);
         setSub.setText(IconCatalog.ICON_NAMES.length + " icons  ·  " + BuildConfig.FLAVOR
                 + " set  ·  " + getString(R.string.app_name));
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Phase 6 Wallpapers tab: a preview of each of the 10 wallpapers
+    /** Wallpapers tab: a preview of each of the 10 wallpapers
      *  (design/wallpapers/, shared across flavors) with a "Set wallpaper"
      *  action per wallpaper. WallpaperManager.setResource with
      *  FLAG_SYSTEM | FLAG_LOCK (API 24+; minSdk here is 26) applies the
@@ -100,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout list = findViewById(R.id.wallpaper_list);
         list.removeAllViews();
         TextView note = findViewById(R.id.wallpaper_note);
-        // Phase 7 per-flavor sets: Clear and Midnight wallpapers are
+        // Per-flavor sets: Clear and Midnight wallpapers are
         // documented 3 light / 3 dark / 4 mid-tone; Prism's tone split is
         // not documented, so its note states no split. Existing flavors
-        // keep the shared Phase 6 wording exactly.
+        // keep the shared wording exactly.
         if (BuildConfig.FLAVOR.equals("prism")) {
             note.setText("10 Prism wallpapers (1080 x 1920) in the Prism palette. "
                     + "Tap Set wallpaper to apply one to your home and lock screens. "
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         TextView note = findViewById(R.id.apply_note);
         note.setText("Applying: " + applyPackPackage + "\n"
                 + "Samsung One UI Home does not apply third-party packs natively — use Good Lock → "
-                + "Theme Park → Icon → Create New → Iconpack (documented route, not yet tested against Luma). "
+                + "Theme Park → Icon → Create New → Iconpack. "
                 + "The stock Pixel launcher does not support third-party icon packs.");
     }
 

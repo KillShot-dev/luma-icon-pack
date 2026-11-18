@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Phase 6: normal permission, no runtime request needed. -->
+    <!-- Normal permission, no runtime request needed. -->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
     <queries>
         <package android:name="com.teslacoilsw.launcher" />
@@ -32,8 +32,22 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- Icon-pack discovery: the standard theme intent actions the
+                 major launchers query when listing installed packs (Nova,
+                 ADW, Apex, GO, Atom conventions; launchers that cloned the
+                 same conventions, e.g. Lawnchair / Microsoft / Smart
+                 Launcher, find the pack through these). Without them no
+                 launcher picker can list Luma at all. -->
+            <intent-filter>
+                <action android:name="com.novalauncher.THEME" />
+                <action android:name="org.adw.launcher.THEMES" />
+                <action android:name="anddoes.launcher.THEME" />
+                <action android:name="com.gau.go.launcherex.theme" />
+                <action android:name="com.dlto.atom.launcher.THEME" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
-        <!-- Phase 6 widgets (from phase6-staging/MANIFEST_SNIPPET.xml; the
+        <!-- Widgets (from phase6-staging/MANIFEST_SNIPPET.xml; the
              snippet's standalone xmlns declaration is dropped on merge).
              exported="true" is required: since API 31 every component with
              an intent filter must declare it, and a widget receiver must

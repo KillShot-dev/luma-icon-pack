@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 /**
- * Luma search widget — ORIGINAL code written for Phase 6 (no widget library).
+ * Luma search widget — ORIGINAL code written for (no widget library).
  *
  * <p>A single Luma-styled search bar. It is a display-only bar, not an input
  * field: {@code RemoteViews} layouts cannot contain an {@code EditText}, so

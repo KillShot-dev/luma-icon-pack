@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Luma search widget provider info — Phase 6 staging (original, no widget library).
+  Luma search widget provider info — staging (original, no widget library).
   ~4x1 cells: 250dp x 40dp. updatePeriodMillis is 0: the bar is static and
   there is nothing to refresh; onUpdate() only (re)binds the tap action.
   Resizable horizontally only, so the bar keeps its single-row height.

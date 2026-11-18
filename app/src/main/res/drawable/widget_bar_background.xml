@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Shared widget bar background — Phase 6 staging (original shape drawable).
+  Shared widget bar background — staging (original shape drawable).
   Translucent deep slate #141821 at ~80% opacity (alpha CC), so the home
   wallpaper shows through faintly, with a 1dp icy-blue #7DD3FC edge at ~20%
   opacity (alpha 33) for the luminous Luma edge. 20dp corners: a soft rounded

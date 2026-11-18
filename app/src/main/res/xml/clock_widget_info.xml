@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Luma clock widget provider info — Phase 6 staging (original, no widget library).
+  Luma clock widget provider info — staging (original, no widget library).
   ~4x2 cells: 250dp x 110dp. updatePeriodMillis is 0 because the TextClock
   views in widget_clock.xml update themselves from system time broadcasts;
   the framework must not wake this provider on a schedule.
