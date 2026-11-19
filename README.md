@@ -1,9 +1,10 @@
-# Luma — Android Icon Pack (Phase 3, PROTOTYPE)
+# Luma — Android Icon Pack
 
-> **PROTOTYPE — not release-ready, not published.** Mapping verification is
-> partial (see below) and no launcher has been tested yet (Phase 4).
-> Do not publish, list, or ship from this project. Nothing here has been
-> uploaded to Google Play and no money has been spent.
+> Seven flavors (Regular, Dark, Gradient, Glyph, Clear, Prism, Midnight),
+> 315 icons each, sold on Google Play by metaPhasic Group. Current release:
+> v7 (versionCode 7, versionName 1.0.3). The project tree is generated —
+> edit tools/generate_project.py and regenerate rather than patching
+> generated files.
 
 ## Project layout
 

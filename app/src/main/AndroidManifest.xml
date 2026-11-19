@@ -32,23 +32,35 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!-- Icon-pack discovery: the standard theme intent actions the
-                 major launchers query when listing installed packs (Nova,
-                 ADW, Apex, GO, Atom conventions; launchers that cloned the
-                 same conventions, e.g. Lawnchair / Microsoft / Smart
-                 Launcher, find the pack through these). Without them no
-                 launcher picker can list Luma at all. -->
+            <!-- Icon-pack discovery: the theme intent actions launchers
+                 query when listing installed packs. Nova, ADW, GO, Atom
+                 and Smart Launcher each query their own action below;
+                 Lawnchair finds packs through Nova's. Apex uses the
+                 separate filter underneath (MAIN + its THEME category,
+                 the form reference packs ship). Microsoft Launcher's
+                 query is closed-source and unverified. Without these,
+                 no launcher picker can list Luma at all. -->
             <intent-filter>
                 <action android:name="com.novalauncher.THEME" />
                 <action android:name="org.adw.launcher.THEMES" />
-                <action android:name="anddoes.launcher.THEME" />
                 <action android:name="com.gau.go.launcherex.theme" />
                 <action android:name="com.dlto.atom.launcher.THEME" />
+                <action android:name="ginlemon.smartlauncher.THEMES" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.novalauncher.category.CUSTOM_ICON_PICKER" />
+            </intent-filter>
+            <!-- Apex Launcher discovery: MAIN action + Apex THEME category. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.anddoes.launcher.THEME" />
+            </intent-filter>
+            <!-- Nova per-icon picker: MAIN action + picker category. -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.novalauncher.category.CUSTOM_ICON_PICKER" />
             </intent-filter>
         </activity>
-        <!-- Widgets (from phase6-staging/MANIFEST_SNIPPET.xml; the
-             snippet's standalone xmlns declaration is dropped on merge).
+        <!-- Widgets (clock + search).
              exported="true" is required: since API 31 every component with
              an intent filter must declare it, and a widget receiver must
              be exported so the host can deliver APPWIDGET_UPDATE. -->

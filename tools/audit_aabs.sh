@@ -54,7 +54,7 @@ for f in $FLAVORS; do
     line=$("$AAPT2" dump badging "$apk" 2>/dev/null | grep '^package:')
     say "$f $line"
     echo "$line" | grep -q "name='com.metaphasicgroup.luma.$f'" || fail "$f package mismatch"
-    echo "$line" | grep -q "versionCode='4'" || say "NOTE: $f versionCode is not 4 (check before upload)"
+    echo "$line" | grep -q "versionCode='7'" || say "NOTE: $f versionCode is not 7 (check before upload)"
   else
     say "$f APK or aapt2 unavailable, manifest check skipped"
   fi

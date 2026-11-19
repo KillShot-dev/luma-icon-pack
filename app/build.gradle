@@ -73,7 +73,7 @@ configurations.all {
 tasks.register('lumaCopyLint') {
     doLast {
         def bad = []
-        def pattern = ~/PROTOTYPE|Phase \d|TODO|not yet tested/
+        def pattern = ~/PROTOTYPE|[Pp]hase[-\s]?\d|TODO|not yet tested/
         fileTree(dir: 'src', includes: ['**/*.java', '**/*.xml']).each { f ->
             f.eachLine('UTF-8') { line, n ->
                 if (line =~ pattern) bad << "${f.path}:${n}: ${line.trim()}"
@@ -84,6 +84,13 @@ tasks.register('lumaCopyLint') {
         }
     }
 }
-tasks.whenTaskAdded { t ->
-    if (t.name == 'preBuild') t.dependsOn 'lumaCopyLint'
+// Gate every build (MP-106): configureEach reaches tasks no
+// matter when AGP registers them, unlike the old whenTaskAdded
+// hook, which was registered after preBuild already existed and
+// so never attached. preBuild and every variant pre<Variant>Build
+// anchor both the assemble and bundle graphs.
+tasks.configureEach { t ->
+    if (t.name == 'preBuild' || (t.name.startsWith('pre') && t.name.endsWith('Build'))) {
+        t.dependsOn 'lumaCopyLint'
+    }
 }
